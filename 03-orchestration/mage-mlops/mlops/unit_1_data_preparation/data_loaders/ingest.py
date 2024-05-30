@@ -28,7 +28,6 @@ def ingest_files(**kwargs) -> pd.DataFrame:
             df = pd.read_parquet(BytesIO(response.content))
             df['lpep_pickup_datetime_cleaned'] = df['lpep_pickup_datetime'].astype(np.int64) // 10**9
             df['lpep_dropoff_datetime_cleaned'] = df['lpep_dropoff_datetime'].astype(np.int64) // 10**9
-            print(df.info())
             dfs.append(df)
 
     return pd.concat(dfs)
