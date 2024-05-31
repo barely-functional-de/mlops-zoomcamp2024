@@ -3,21 +3,21 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: unit_2_training/global_data_products/training_set.py
+      path: unit_2_training/global_data_products/training_set_2.py
     global_data_product:
-      uuid: training_set
+      uuid: training_set_2
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Training set
+  name: Training set 2
   retry_config: null
-  status: failed
+  status: executed
   timeout: null
   type: global_data_product
   upstream_blocks: []
-  uuid: training_set
+  uuid: training_set_2
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
