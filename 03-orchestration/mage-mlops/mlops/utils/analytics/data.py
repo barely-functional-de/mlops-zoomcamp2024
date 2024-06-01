@@ -44,7 +44,8 @@ def load_data(*args, **kwargs) -> pd.DataFrame:
             start_time_minute = start_time.minute
             start_time_format_day = start_time.strftime('%Y-%m-%d')
             start_time_format_hour = start_time.strftime('%Y-%m-%d %H:%M')
-            start_time_format_minute = start_time.strftime('%H:%MD%d')
+            # start_time_format_minute = start_time.strftime('%H:%M%D%d')
+            start_time_format_minute = start_time.strftime('%H:%M') + 'D' + start_time.strftime('%d')
 
 
             data = dict(

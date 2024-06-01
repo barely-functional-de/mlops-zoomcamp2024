@@ -23,6 +23,7 @@ def hyperparameter_tuning(
     csr_matrix,
     Series,
 ]:
+    print(training_set['build'])
     X, X_train, X_val, y, y_train, y_val, _ = training_set['build']
 
     training = build_data(X_train, y_train)

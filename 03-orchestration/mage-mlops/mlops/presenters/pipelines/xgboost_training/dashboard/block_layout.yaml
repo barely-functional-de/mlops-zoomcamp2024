@@ -40,6 +40,24 @@ blocks:
     skip_render: false
     type: chart
     uuid: shap_values_force_chart
+  training_metrics__rmse__faisal:
+    configuration:
+      chart_type: time series line chart
+      group_by:
+      - start_time_format_minute
+      metrics:
+      - aggregation: average
+        column: rmse
+      time_interval: minute
+      x_axis_label_format: h:mm
+    data_source:
+      type: chart_code
+    error: null
+    name: training metrics (RMSE) Faisal
+    name_new: training metrics (RMSE) Faisal
+    skip_render: false
+    type: chart
+    uuid: training_metrics__rmse__faisal
 layout:
 - - block_uuid: shap_values_bar
     height: 400
@@ -48,4 +66,6 @@ layout:
     height: 400
     width: 1
 - - block_uuid: shap_values_force_chart
+    width: 1
+- - block_uuid: training_metrics__rmse__faisal
     width: 1

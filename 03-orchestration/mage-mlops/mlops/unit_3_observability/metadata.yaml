@@ -4,7 +4,7 @@ notification_config:
   alert_on:
     - trigger_failure
     - trigger_passed_sla
-    # - trigger_success
+    - trigger_success
   email_config:
     smtp_host: smtp.gmail.com
     smtp_user: "{{ env_var('SMTP_EMAIL') }}"
