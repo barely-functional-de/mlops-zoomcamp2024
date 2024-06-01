@@ -35,7 +35,7 @@ services:
       - ~/.postgres/data:/var/lib/postgresql/data
       # Custom database initialization scripts (optional).
       - ./scripts/database:/docker-entrypoint-initdb.d
-    restart: always
+    # restart: always
     networks:
       - app-network
 networks:
