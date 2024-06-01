@@ -8,6 +8,7 @@ blocks:
       uuid: training_set_2
   downstream_blocks:
   - hyperparameter_tuning/xgboost
+  - xgboost
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -24,7 +25,8 @@ blocks:
   configuration:
     file_source:
       path: unit_2_training/transformers/hyperparameter_tuning/xgboost.py
-  downstream_blocks: []
+  downstream_blocks:
+  - xgboost
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -37,6 +39,25 @@ blocks:
   upstream_blocks:
   - training_set_2
   uuid: hyperparameter_tuning/xgboost
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/data_exporters/xgboost.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: xgboost
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - training_set_2
+  - hyperparameter_tuning/xgboost
+  uuid: xgboost
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -63,6 +84,7 @@ type: python
 uuid: xgboost_training
 variables:
   early_stopping_rounds: 1
+  max_depth: 10
   max_evaluations: 1
 variables_dir: /home/src/mage_data/unit_2_training
 widgets: []
