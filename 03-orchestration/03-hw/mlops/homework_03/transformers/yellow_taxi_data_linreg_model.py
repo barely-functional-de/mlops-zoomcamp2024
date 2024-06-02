@@ -38,7 +38,7 @@ def transform(data, *args, **kwargs):
     lr.fit(X_train, y_train)
     # print(f"Intercept: {lr.intercept_}")
 
-    return lr, dv, lr.intercept_
+    return lr, dv, lr.intercept_, X_train, y_train
 
 
 @test
