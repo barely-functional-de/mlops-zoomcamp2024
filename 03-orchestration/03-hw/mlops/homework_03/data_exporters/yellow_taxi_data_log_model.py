@@ -1,5 +1,5 @@
 import mlflow
-mlflow .set_tracking_uri("http://mlflow:5000")
+mlflow.set_tracking_uri("http://mlflow:5000")
 mlflow.set_experiment("nyc-taxi-experiment")
 
 if 'data_exporter' not in globals():
