@@ -22,19 +22,38 @@ blocks:
   configuration:
     file_source:
       path: homework_03/transformers/yellow_taxi_data_transformer.py
-  downstream_blocks: []
+  downstream_blocks:
+  - yellow_taxi_data_linreg_model
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: yellow_taxi_data_transformer
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - yellow_taxi_data_loader
   uuid: yellow_taxi_data_transformer
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/yellow_taxi_data_linreg_model.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: yellow_taxi_data_linreg_model
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - yellow_taxi_data_transformer
+  uuid: yellow_taxi_data_linreg_model
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

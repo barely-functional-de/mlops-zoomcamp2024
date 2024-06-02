@@ -1,4 +1,5 @@
-from utils.data_preparation.cleaning import read_dataframe
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.linear_model import LinearRegression
 
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
@@ -22,9 +23,24 @@ def transform(data, *args, **kwargs):
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
     # Specify your transformation logic here
-    df_transform = read_dataframe(data)
+    categorical = ['PULocationID', 'DOLocationID']
+    y_train = data['duration']
+    # data = data.dropna(subset=['duration'])
 
-    return df_transform
+    # Convert the DataFrame to a list of dictionaries
+    train_dict = data[categorical].to_dict(orient='records')
+    # Initialize the DictVectorizer
+    dv = DictVectorizer(sparse=True)
+    # Fit and transform the training data
+    X_train = dv.fit_transform(train_dict)
+    # initialize LinReg model
+    lr = LinearRegression()
+    # Train the model on the transformed training data
+    lr.fit(X_train, y_train)
+    # print(f"Intercept: {lr.intercept_}")
+
+    return lr, dv, lr.intercept_
+    # return []
 
 
 @test

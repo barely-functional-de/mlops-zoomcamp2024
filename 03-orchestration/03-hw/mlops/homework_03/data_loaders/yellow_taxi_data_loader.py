@@ -19,5 +19,6 @@ def ingest_files(**kwargs) -> pd.DataFrame:
 
     # Load the Parquet file into a pandas DataFrame
     df = pd.read_parquet(url, engine='pyarrow')
+    print(df.info())
 
     return df
