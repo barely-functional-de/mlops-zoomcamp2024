@@ -26,10 +26,6 @@ def export_data(data, *args, **kwargs):
         lr.fit(X_train, y_train)
 
         mlflow.sklearn.log_model(lr, "linear_regression_model")
-        # Save the DictVectorizer as an artifact
-        # dv_path = "dict_vectorizer.pkl"
-        # joblib.dump(dv, dv_path)
-        # mlflow.log_artifact(dv_path)
 
 
 
