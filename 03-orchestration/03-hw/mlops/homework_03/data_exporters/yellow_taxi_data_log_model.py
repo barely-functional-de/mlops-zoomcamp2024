@@ -1,3 +1,5 @@
+import os
+import pickle
 import mlflow
 mlflow.set_tracking_uri("http://mlflow:5000")
 mlflow.set_experiment("nyc-taxi-experiment")
@@ -21,11 +23,15 @@ def export_data(data, *args, **kwargs):
     """
     # Specify your data exporting logic here
     lr, dv, intercept_, X_train, y_train = data
-    print(intercept_)
-    with mlflow.start_run():
-        lr.fit(X_train, y_train)
+    current_working_directory = os.getcwd()
+    print(current_working_directory)
+    with open("/home/src/mlops/homework_03/models/dv.b", "wb") as f_out:
+        pickle.dump(dv, f_out)
 
+    with mlflow.start_run():
+        # lr.fit(X_train, y_train)
         mlflow.sklearn.log_model(lr, "linear_regression_model")
+        mlflow.log_artifact("/home/src/mlops/homework_03/models/dv.b", artifact_path="DictVectorizer")
 
 
 
