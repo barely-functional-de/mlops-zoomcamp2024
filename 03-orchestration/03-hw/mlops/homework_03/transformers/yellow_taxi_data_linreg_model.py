@@ -25,7 +25,6 @@ def transform(data, *args, **kwargs):
     # Specify your transformation logic here
     categorical = ['PULocationID', 'DOLocationID']
     y_train = data['duration']
-    # data = data.dropna(subset=['duration'])
 
     # Convert the DataFrame to a list of dictionaries
     train_dict = data[categorical].to_dict(orient='records')
@@ -40,7 +39,6 @@ def transform(data, *args, **kwargs):
     # print(f"Intercept: {lr.intercept_}")
 
     return lr, dv, lr.intercept_
-    # return []
 
 
 @test
